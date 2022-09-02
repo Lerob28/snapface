@@ -1,4 +1,5 @@
 import { Component, Input} from '@angular/core';
+import { Router } from '@angular/router';
 import { FaceSnapService } from '../services/face-snap-service';
 import { FaceSnap } from './models/face-snap.model';
 
@@ -11,7 +12,7 @@ export class FaceSnapComponent {
 
   @Input() faceSnap!: FaceSnap
 
-  constructor( private faceSnapService: FaceSnapService){}
+  constructor( private faceSnapService: FaceSnapService, private router: Router){}
 
   onAddSnap() {
     this.faceSnapService.SnapById(this.faceSnap.id, true);
@@ -19,5 +20,9 @@ export class FaceSnapComponent {
 
   onRemSnap() {
     this.faceSnapService.SnapById(this.faceSnap.id, false);
+  }
+
+  onViewFaceSnap(){
+    this.router.navigateByUrl(`facesnap/${this.faceSnap.id}`)
   }
 }
