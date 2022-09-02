@@ -1,5 +1,5 @@
 <div class="face-snap-card" [ngClass]="{snapped:  faceSnap.snaps>=10 }">
-    <p>{{ 4346234.36 | percent}}</p>
+    <p>{{ 436 | currency: 'EUR'}}</p>
     <h2>{{ faceSnap.title | titlecase }}</h2>
     <p>Mis en ligne {{ faceSnap.createdDate | date: 'le d MMMM yyyy, à HH:mm' }}</p>
     <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title">

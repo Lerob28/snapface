@@ -1,4 +1,5 @@
 import { Component, Input} from '@angular/core';
+import { FaceSnapService } from '../services/face-snap-service';
 import { FaceSnap } from './models/face-snap.model';
 
 @Component({
@@ -10,11 +11,13 @@ export class FaceSnapComponent {
 
   @Input() faceSnap!: FaceSnap
 
+  constructor( private faceSnapService: FaceSnapService){}
+
   onAddSnap() {
-    this.faceSnap.snaps++;
+    this.faceSnapService.SnapById(this.faceSnap.id, true);
   }
 
   onRemSnap() {
-    this.faceSnap.snaps--;
+    this.faceSnapService.SnapById(this.faceSnap.id, false);
   }
 }
